@@ -5,6 +5,12 @@ const serviceAccount: ServiceAccount = {
   privateKey: (process.env.FIREBASE_PRIVATE_KEY as string).replace(/\\n/g, '\n'),
   clientEmail: process.env.FIREBASE_CLIENT_EMAIL as string,
 };
+console.log({
+  project: process.env.FIREBASE_PROJECT_ID,
+  email: process.env.FIREBASE_CLIENT_EMAIL,
+  key: process.env.FIREBASE_PRIVATE_KEY ? "OK" : "MISSING"
+});
+
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
