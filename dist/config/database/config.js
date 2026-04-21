@@ -9,6 +9,11 @@ const serviceAccount = {
     privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'),
     clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
 };
+console.log({
+    project: process.env.FIREBASE_PROJECT_ID,
+    email: process.env.FIREBASE_CLIENT_EMAIL,
+    key: process.env.FIREBASE_PRIVATE_KEY ? "OK" : "MISSING"
+});
 firebase_admin_1.default.initializeApp({
     credential: firebase_admin_1.default.credential.cert(serviceAccount),
     projectId: serviceAccount.projectId
